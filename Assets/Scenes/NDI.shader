@@ -46,6 +46,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
+                col = sqrt(col); // fix gamma
 
                 fixed4 rgb = fixed4(col.rgb, 1);
                 fixed4 alpha = fixed4(0, 0, 0, 0) + col.a;

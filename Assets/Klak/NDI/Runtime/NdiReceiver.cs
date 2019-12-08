@@ -57,6 +57,9 @@ namespace Klak.Ndi
             get { return _targetTexture != null ? _targetTexture : _receivedTexture; }
         }
 
+        public int width { get; private set; }
+        public int height { get; private set; }
+
         #endregion
 
         #region Private members
@@ -125,6 +128,9 @@ namespace Klak.Ndi
             var width = PluginEntry.GetFrameWidth(_plugin);
             var height = PluginEntry.GetFrameHeight(_plugin);
             if (width == 0 || height == 0) return; // Not yet ready
+
+            this.width = width;
+            this.height = height;
 
             // Source data dimensions
             var alpha = PluginEntry.GetFrameFourCC(_plugin) == FourCC.UYVA;
